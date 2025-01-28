@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duruthu Full Moon</title>
+    <link rel="stylesheet" href="css/HNEStyles.css">
+</head>
+<body>
+    <header class="headere">
+        <nav>
+            <a href="events_calendar.html">Cultural Calendar</a>
+            <a href="ella.html">Nature's Wonders</a>
+            <a href="heritage.html">Historic Treasures</a>
+        </nav>
+        <div class="account-container" onclick="toggleDropdown()">
+            <div class="account-icon">
+                <img src="images/user.png" alt="Account Icon">
+            </div>
+            <div class="dropdown" id="accountDropdown">
+                <div class="dropdown-header">
+                    <img src="images/avatar.png" alt="User Avatar">
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Online</p>
+                    </div>
+                </div>
+                <div class="DD-links">
+                    <ul class="dropdown-menu">
+                        <li><a href="Profile.html"> Account </a></li>
+                        <li>Travel Plan</li>
+                        <li>Settings</li>
+                        <li>Support</li>
+                        <li><a href="Login.html">Logout</a></li>
+                    </ul>
+                    </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1>Duruthu Full Moon Poya</h1>
+        <div class="content">
+            <p>Duruthu Full Moon Poya is marked with a public holiday in Sri Lanka. This poya day is celebrated on the first full moon in January and marks the first visit of the Buddha to Sri Lanka.</p>
+            <h3>History of Duruthu Poya</h3>                
+            <p>This is a key religious and historic date in the calendar for Sri Lankans as it marks Gautama Buddha's first visit to Sri Lanka on the ninth month after attaining Enlightenment.
+                The Buddha first visited Mahiyanganaya in the Uva Province of Sri Lanka about 2,500 years ago. According to the ancient texts of Sri Lanka, the Mahavansa and Dipavansa, the Buddha visited to bring an end to fighting between the two main tribes on the island.During his visit, the Buddha delivered sermons to the tribes. After listening to the sermons, the tribes gave up fighting with each other and started to respect each other with dignity.
+Impressed by the sermons, the local God Sumana Saman invited the Buddha to leave his sacred footprint on the peak of the Samanala Mountain. Duruthu poya marks the beginning of the three-month pilgrimage season to Samanala Mountain in order to worship the footprint of the Buddha.
+The impression of the footprint is sacred to other religions. In the Hindu tradition, it thought to be the footprint of Shiva and some Christians think it is the footprint of Adam, which is why the mountain is also called Adam's Peak. 
+                The poya is also celebrated with a spectacular procession (perahera) at the Kelaniya Raja Maha Vihara, a Buddhist temple in Kelaniya, about seven miles from Colombo. Taking place on the pre-full moon poya day and attracting thousands of spectators, the perahera involves dancers and animals and can take over two hours to pass by. In some years, there are two full moons in January. In such years (2018 was the most recent example), the second full moon poya is known as Adhi (Sinhalese: half) Duruthu Poya and this will be the date of the perahera.
+            </p>
+            
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h1 style="font-family:Clicker Script;">HeritScope Lanka</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <div class="social-media">
+                    <a href="#"><img src="images/facebook.png" alt="Google"></a>
+                    <a href="#"><img src="images/instagram.webp" alt="Facebook"></a>
+                    <a href="#"><img src="images/youtube.webp" alt="Instagram"></a>
+                    <a href="#"><img src="images/x.webp" alt="Twitter"></a>
+                </div>
+            </div>
+    
+            <div class="footer-links">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">News & Blogs</a></li>
+                    <li><a href="#">Help & Supports</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-company">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">How we work</a></li>
+                    <li><a href="#">Terms of service</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Cinec, Malabe, Sri Lanka</p>
+                <p>+94 11 000000</p>
+                <p><a href="mailto:heritscopelanka@gmail.com">heritscopelanka@gmail.com</a></p>
+                <p><a href="http://www.heritscopelanka.com">www.heritscopelanka.com</a></p>
+            </div>
+        </div>
+    </footer>        
+  <script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById('accountDropdown');
+        dropdown.classList.toggle('active');
+    }
+
+    document.addEventListener('click', function (event) {
+        const dropdown = document.getElementById('accountDropdown');
+        const accountContainer = document.querySelector('.account-container');
+        if (!accountContainer.contains(event.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>
+
