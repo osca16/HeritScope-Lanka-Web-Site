@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="css/SignUp_styles.css">
+</head>
+<body>
+  <div class="container">
+      <div class="image-section"></div>
+      <div class="form-section">
+          <h1>Sign up</h1>
+          <p>Let's get you all st up so you can access your personal account.</p>
+          <form>
+              <input type="text" placeholder="First Name" required>
+              <input type="text" placeholder="Last Name" required>
+              <input type="email" placeholder="Email" required>
+              <input type="tel" placeholder="Phone Number" required>
+              <input type="password" placeholder="Password" required>
+              <input type="password" placeholder="Confirm Password" required>
+              <div class="remember-me">
+                  <input type="checkbox" id="agree-terms" required>
+                  <label for="agree-terms">I agree to all the Terms and Privacy Policies</label>
+              </div>
+              <button type="submit" onclick="goToPage4()">Create account</button>
+              <script>
+                function goToPage4() {
+                window.location.href = "login.html"; 
+                }
+            </script>
+          </form>
+          <div class="signup">
+              Already have an account? <a href="Login.html">Login</a>
+          </div>
+          <div class="social-login">
+              <button><img src="images/facebook.png"></button>
+              <button><img src="images/Google.png"></button>
+              <button><img src="images/Apple.png"></button>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
