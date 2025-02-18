@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/Travel_Plany.css">
+  <title>Heritage List</title>
+  
+</head>
+<body>
+  
+  <header class="headerd">
+    <nav>
+        <a href="events_calendar.html">Cultural Calendar</a>
+        <a href="N-Heritage_List.html">Nature's Wonders</a>
+        <a href="H-Heritage_List.html">Historic Treasures</a>
+    </nav>
+    <div class="account-container" onclick="toggleDropdown()">
+        <div class="account-icon">
+            <img src="images/user.png" alt="Account Icon">
+        </div>
+        <div class="dropdown" id="accountDropdown">
+            <div class="dropdown-header">
+                <img src="images/avatar.png" alt="User Avatar">
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Online</p>
+                </div>
+            </div>
+            <div class="DD-links">
+                <ul class="dropdown-menu">
+                    <li><a href="Profile.html"> Account </a></li>
+                    <li><a href="Travel_Plan.html">Travel Plan</a></li>
+                    <li>Settings</li>
+                    <li>Support</li>
+                    <li><a href="Login.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+</header>
+<main>
+    <ul class="card-list">
+        <li class="card">
+            <img src="images/Day1.webp" alt="Day 1 - Sigiriya">
+            <div class="card-content">
+                <h2>Day 1 - Sigiriya & Dambulla</h2>
+                <p>Start your journey with the iconic <strong>Sigiriya Rock Fortress</strong>, a UNESCO World Heritage Site. Later, visit the <strong>Dambulla Cave Temple</strong>, the largest cave temple complex in Sri Lanka.</p>
+            </div>
+        </li>
+
+        <li class="card">
+            <img src="images/day2.jpg" alt="Day 2 - Kandy">
+            <div class="card-content">
+                <h2>Day 2 - Kandy & Temple of the Tooth</h2>
+                <p>Explore the cultural city of <strong>Kandy</strong>, home to the sacred <strong>Temple of the Tooth Relic</strong>. Visit the <strong>Royal Botanical Gardens</strong> in Peradeniya and enjoy a scenic lake walk.</p>
+            </div>
+        </li>
+
+        <li class="card">
+            <img src="images/day3.jpg" alt="Day 3 - Ella & Nine Arches">
+            <div class="card-content">
+                <h2>Day 3 - Ella & Nine Arches Bridge</h2>
+                <p>Take the scenic <strong>train ride to Ella</strong>, one of the most beautiful train journeys in the world. Visit the famous <strong>Nine Arches Bridge</strong>, Little Adam’s Peak, and Ravana Falls.</p>
+            </div>
+        </li>
+
+        <li class="card">
+            <img src="images/Day4.webp" alt="Day 4 - Kitulgala">
+            <div class="card-content">
+                <h2>Day 4 - Adventure in Kitulgala</h2>
+                <p>Experience adventure sports in <strong>Kitulgala</strong>, including white-water rafting and exploring the prehistoric <strong>Belilena Cave</strong>, where ancient human remains were discovered.</p>
+            </div>
+        </li>
+
+        <li class="card">
+            <img src="images/Day5.webp" alt="Day 5 - Galle & Unawatuna">
+            <div class="card-content">
+                <h2>Day 5 - Galle Fort & Unawatuna Beach</h2>
+                <p>End your trip with a visit to the <strong>Galle Dutch Fort</strong>, a UNESCO World Heritage Site. Relax at <strong>Unawatuna Beach</strong> or visit the iconic <strong>stilt fishermen</strong> in Weligama.</p>
+            </div>
+        </li>
+    </ul>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="footer-about">
+            <h1 style="font-family:Clicker Script;">HeritScope Lanka</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <div class="social-media">
+                <a href="#"><img src="images/facebook.png" alt="Google"></a>
+                <a href="#"><img src="images/instagram.webp" alt="Facebook"></a>
+                <a href="#"><img src="images/youtube.webp" alt="Instagram"></a>
+                <a href="#"><img src="images/x.webp" alt="Twitter"></a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h3>About</h3>
+            <ul>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">News & Blogs</a></li>
+                <li><a href="#">Help & Supports</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-company">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">How we work</a></li>
+                <li><a href="#">Terms of service</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Cinec, Malabe, Sri Lanka</p>
+            <p>+94 11 000000</p>
+            <p><a href="mailto:heritscopelanka@gmail.com">heritscopelanka@gmail.com</a></p>
+            <p><a href="http://www.heritscopelanka.com">www.heritscopelanka.com</a></p>
+        </div>
+    </div>
+</footer>        
+<script>
+function toggleDropdown() {
+    const dropdown = document.getElementById('accountDropdown');
+    dropdown.classList.toggle('active');
+}
+
+document.addEventListener('click', function (event) {
+    const dropdown = document.getElementById('accountDropdown');
+    const accountContainer = document.querySelector('.account-container');
+    if (!accountContainer.contains(event.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+</script>
+
+
+
+
+
+  </body>
+  </html>
