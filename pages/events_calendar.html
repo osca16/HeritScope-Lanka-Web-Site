@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/Calender_styles.css">
+  <title>Dynamic Calendar</title>
+  
+</head>
+<body>
+  
+  <header class="headerd">
+    <nav>
+        <a href="events_calendar.html">Cultural Calendar</a>
+        <a href="ella.html">Nature's Wonders</a>
+        <a href="heritage.html">Historic Treasures</a>
+    </nav>
+    <div class="account-container" onclick="toggleDropdown()">
+        <div class="account-icon">
+            <img src="images/user.png" alt="Account Icon">
+        </div>
+        <div class="dropdown" id="accountDropdown">
+            <div class="dropdown-header">
+                <img src="images/avatar.png" alt="User Avatar">
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Online</p>
+                </div>
+            </div>
+            <div class="DD-links">
+            <ul class="dropdown-menu">
+                <li><a href="Profile.html"> Account </a></li>
+                <li>Travel Plan</li>
+                <li>Settings</li>
+                <li>Support</li>
+                <li><a href="Login.html">Logout</a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+  <div class="button-container">
+    <button class="button" id="switch-view">Switch to Event List</button>
+</div>
+    <div class="calendar-container">
+
+      <div class="calendar">
+        <div class="calendar-header" id="calendar-header">January 2025</div>
+        <div class="calendar-controls">
+          <button class="button" id="prev-month">Previous</button>
+          <button class="button" id="next-month">Next</button>
+        </div>
+        <div class="calendar-days">
+          <div class="day">Sun</div>
+          <div class="day">Mon</div>
+          <div class="day">Tue</div>
+          <div class="day">Wed</div>
+          <div class="day">Thu</div>
+          <div class="day">Fri</div>
+          <div class="day">Sat</div>
+        </div>
+        <div class="calendar-grid" id="calendar-grid"></div>
+      </div>
+  
+      <div class="event-list" id="event-list" style="display: none;">
+        <!-- Event list will be dynamically generated here -->
+      </div>
+      </div>
+      </main>
+  
+    <script>
+      const calendarGrid = document.getElementById('calendar-grid');
+      const calendarHeader = document.getElementById('calendar-header');
+      const prevMonthButton = document.getElementById('prev-month');
+      const nextMonthButton = document.getElementById('next-month');
+      const switchViewButton = document.getElementById('switch-view');
+      const eventList = document.getElementById('event-list');
+  
+      let currentMonth = new Date().getMonth();
+      let currentYear = new Date().getFullYear();
+      let isCalendarView = true;
+  
+      const events = [
+        { date: '13/01/2025', name: 'Duruthu Full Moon Poya Day', link: 'Duruthu Full Moon.html' },
+        { date: '14/01/2025', name: 'Tamil Thai Pongal Day',link: 'Thai Pongal.html' },
+        { date: '04/02/2025', name: 'Independence Day Sri Lanka' },
+        { date: '12/02/2025', name: 'Navam Full Moon Poya Day'},
+        { date: '26/02/2025', name: 'Maha Shivarathri Day'},
+        { date: '13/03/2025', name: 'Madin Full Moon Poya Day'},
+        { date: '31/03/2025', name: 'Ramazan Festival'},
+        { date: '12/04/2025', name: 'Bak Full Moon Poya Day'},
+        { date: '13/04/2025', name: 'Sinhala and Tamil New Year Event'},
+        { date: '14/04/2025', name: 'Sinhala and Tamil New Year Event'},
+        { date: '18/04/2025', name: 'Good Friday'},
+        { date: '01/05/2025', name: 'Labour Day'},
+        { date: '12/05/2025', name: 'Vesak Full Moon Poya Day'},
+        { date: '13/05/2025', name: 'Vesak Full Moon Poya Day'},
+        { date: '07/06/2025', name: 'Hadji Festival'},
+        { date: '10/06/2025', name: 'Poson Full Moon Poya Day'},
+        { date: '10/07/2025', name: 'Esela Full Moon Poya Day'},
+        { date: '08/08/2025', name: 'Nikini Full Moon Poya Day'},
+        { date: '05/09/2025', name: 'Milad-Ul-Nabi Holly Prophet Birthday'},
+        { date: '07/09/2025', name: 'Binara Full Moon Poya Day'},
+        { date: '06/10/2025', name: 'Vap Full Moon Poya Day'},
+        { date: '20/10/2025', name: 'Deepavali Festival Day'},
+        { date: '05/11/2025', name: 'Ill Full Moon Poya Day'},
+        { date: '07/12/2025', name: 'Unduwap Full Moon Poya Day'},
+        { date: '25/12/2025', name: 'Christmas Day'}
+      ];
+  
+      function updateCalendar(month, year) {
+        calendarGrid.innerHTML = '';
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDay = new Date(year, month, 1).getDay();
+  
+        calendarHeader.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+  
+        for (let i = 0; i < firstDay; i++) {
+          const dateElement = document.createElement('div');
+          dateElement.classList.add('date', 'inactive');
+          calendarGrid.appendChild(dateElement);
+        }
+  
+        for (let i = 1; i <= daysInMonth; i++) {
+          const dateElement = document.createElement('div');
+          dateElement.classList.add('date');
+          dateElement.textContent = i;
+  
+          const eventDate = `${i.toString().padStart(2, '0')}/${(month + 1).toString().padStart(2, '0')}/${year}`;
+          if (events.some(event => event.date === eventDate)) {
+            dateElement.classList.add('event-date');
+          }
+  
+          dateElement.addEventListener('click', () => {
+            console.log(`Date ${i} clicked!`);
+          });
+  
+          calendarGrid.appendChild(dateElement);
+        }
+      }
+  
+      function updateEventList() {
+        eventList.innerHTML = '';
+  
+        const currentMonthEvents = events.filter(event => {
+          const [day, month, year] = event.date.split('/');
+          return parseInt(month) - 1 === currentMonth && parseInt(year) === currentYear;
+        });
+  
+        currentMonthEvents.forEach(event => {
+          const eventElement = document.createElement('div');
+          eventElement.classList.add('event');
+          eventElement.innerHTML = `
+            <div class="date">${event.date}</div>
+            <div class="event-name">${event.name}</div>
+            <a href="#" class="see-more">See More</a>
+          `;
+          eventList.appendChild(eventElement);
+        });
+      }
+  
+      prevMonthButton.addEventListener('click', () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        updateCalendar(currentMonth, currentYear);
+        updateEventList();
+      });
+  
+      nextMonthButton.addEventListener('click', () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        updateCalendar(currentMonth, currentYear);
+        updateEventList();
+      });
+  
+      switchViewButton.addEventListener('click', () => {
+        isCalendarView = !isCalendarView;
+        if (isCalendarView) {
+          calendarGrid.style.display = 'grid';
+          eventList.style.display = 'none';
+          switchViewButton.textContent = 'Switch to Event List';
+        } else {
+          calendarGrid.style.display = 'none';
+          eventList.style.display = 'block';
+          switchViewButton.textContent = 'Switch to Calendar';
+          updateEventList();
+        }
+      });
+  
+      updateCalendar(currentMonth, currentYear);
+      updateEventList();
+
+      function updateCalendar(month, year) {
+    calendarGrid.innerHTML = '';
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month, 1).getDay();
+
+    calendarHeader.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+
+    for (let i = 0; i < firstDay; i++) {
+        const dateElement = document.createElement('div');
+        dateElement.classList.add('date', 'inactive');
+        calendarGrid.appendChild(dateElement);
+    }
+
+    for (let i = 1; i <= daysInMonth; i++) {
+        const dateElement = document.createElement('div');
+        dateElement.classList.add('date');
+        dateElement.textContent = i;
+
+        const eventDate = `${i.toString().padStart(2, '0')}/${(month + 1).toString().padStart(2, '0')}/${year}`;
+        const event = events.find(event => event.date === eventDate);
+
+        if (event) {
+            dateElement.classList.add('event-date');
+            dateElement.addEventListener('click', () => {
+                if (event.link) {
+                    window.location.href = event.link;  // Redirect to the specific HTML page
+                }
+            });
+        }
+
+        calendarGrid.appendChild(dateElement);
+    }
+}
+
+function updateEventList() {
+    eventList.innerHTML = '';
+
+    const currentMonthEvents = events.filter(event => {
+        const [day, month, year] = event.date.split('/');
+        return parseInt(month) - 1 === currentMonth && parseInt(year) === currentYear;
+    });
+
+    currentMonthEvents.forEach(event => {
+        const eventElement = document.createElement('div');
+        eventElement.classList.add('event');
+        eventElement.innerHTML = `
+            <div class="date">${event.date}</div>
+            <div class="event-name">${event.name}</div>
+            <a href="${event.link || '#'}" class="see-more">See More</a>
+        `;
+        eventList.appendChild(eventElement);
+    });
+}
+
+    </script>
+    </div>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="footer-about">
+            <h1 style="font-family:Clicker Script;">HeritScope Lanka</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <div class="social-media">
+                <a href="#"><img src="images/facebook.png" alt="Google"></a>
+                <a href="#"><img src="images/instagram.webp" alt="Facebook"></a>
+                <a href="#"><img src="images/youtube.webp" alt="Instagram"></a>
+                <a href="#"><img src="images/x.webp" alt="Twitter"></a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h3>About</h3>
+            <ul>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">News & Blogs</a></li>
+                <li><a href="#">Help & Supports</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-company">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">How we work</a></li>
+                <li><a href="#">Terms of service</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Cinec, Malabe, Sri Lanka</p>
+            <p>+94 11 000000</p>
+            <p><a href="mailto:heritscopelanka@gmail.com">heritscopelanka@gmail.com</a></p>
+            <p><a href="http://www.heritscopelanka.com">www.heritscopelanka.com</a></p>
+        </div>
+    </div>
+</footer>        
+<script>
+function toggleDropdown() {
+    const dropdown = document.getElementById('accountDropdown');
+    dropdown.classList.toggle('active');
+}
+
+document.addEventListener('click', function (event) {
+    const dropdown = document.getElementById('accountDropdown');
+    const accountContainer = document.querySelector('.account-container');
+    if (!accountContainer.contains(event.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+</script>
+
+
+
+
+
+  </body>
+  </html>

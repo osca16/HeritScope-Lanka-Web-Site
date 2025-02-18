@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ella - Demodara</title>
+    <link rel="stylesheet" href="css/HNEStyles.css">
+</head>
+<body>
+    <header class="headerb">
+        <nav>
+            <a href="events_calendar.html">Cultural Calendar</a>
+            <a href="ella.html">Nature's Wonders</a>
+            <a href="heritage.html">Historic Treasures</a>
+        </nav>
+        <div class="account-container" onclick="toggleDropdown()">
+            <div class="account-icon">
+                <img src="images/user.png" alt="Account Icon">
+            </div>
+            <div class="dropdown" id="accountDropdown">
+                <div class="dropdown-header">
+                    <img src="images/avatar.png" alt="User Avatar">
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Online</p>
+                    </div>
+                </div>
+                <div class="DD-links">
+                    <ul class="dropdown-menu">
+                        <li><a href="Profile.html"> Account </a></li>
+                        <li>Travel Plan</li>
+                        <li>Settings</li>
+                        <li>Support</li>
+                        <li><a href="Login.html">Logout</a></li>
+                    </ul>
+                    </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1>Ella - Demodara</h1>
+        <div class="content">
+            <p>Nested in the heart of Sri Lanka's hill country, Ella is a picturesque town that captivates visitors with its serene beauty, lush greenery, and rich history. Surrounded by rolling tea plantations, misty mountains, and cascading waterfalls, Ella offers a perfect getaway for nature lovers, adventurers, and history enthusiasts alike.</p>
+            <p>Renowned for its breathtaking viewpoints, Ella features iconic attractions like Ella Rock, Little Adam's Peak, and the Nine Arches Bridge, a marvel of colonial engineering. The area is steeped in folklore, with ties to the legendary tales of King Ravana from the Ramayana, adding a mystical charm to its allure.</p>
+            <p>Whether you're hiking through verdant trails, exploring ancient caves like Ravana Ella Cave, or simply savoring the tranquil ambiance with a warm cup of local tea, Ella promises an unforgettable experience. It's a haven where time slows down, and every moment feels like a journey through paradise.</p>
+            <div class="map-add-to-plan">
+                <a class="add-to-plan" href="#">Add To Plan</a>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31686.73820151278!2d81.045!3d6.8768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae465e7b378d617%3A0xe2a5dd7355e1bb9a!2sElla!5e0!3m2!1sen!2slk!4v1692498825044!5m2!1sen!2slk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h1 style="font-family:Clicker Script;">HeritScope Lanka</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <div class="social-media">
+                    <a href="#"><img src="images/facebook.png" alt="Google"></a>
+                    <a href="#"><img src="images/instagram.webp" alt="Facebook"></a>
+                    <a href="#"><img src="images/youtube.webp" alt="Instagram"></a>
+                    <a href="#"><img src="images/x.webp" alt="Twitter"></a>
+                </div>
+            </div>
+    
+            <div class="footer-links">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">News & Blogs</a></li>
+                    <li><a href="#">Help & Supports</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-company">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">How we work</a></li>
+                    <li><a href="#">Terms of service</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Cinec, Malabe, Sri Lanka</p>
+                <p>+94 11 000000</p>
+                <p><a href="mailto:heritscopelanka@gmail.com">heritscopelanka@gmail.com</a></p>
+                <p><a href="http://www.heritscopelanka.com">www.heritscopelanka.com</a></p>
+            </div>
+        </div>
+    </footer>        
+</body>
+</html>
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('accountDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function (event) {
+            const dropdown = document.getElementById('accountDropdown');
+            const accountContainer = document.querySelector('.account-container');
+            if (!accountContainer.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
